@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "InputHandler.h"
+#import "Player.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -15,10 +16,11 @@ int main(int argc, const char * argv[]) {
         BOOL gameOn = YES;
         char input[100];
         
+        NSLog(@"Welcome");
+        
         while (gameOn)
         {
-            NSLog(@"Welcome");
-            
+            Player *player = [[Player alloc] init];
             fgets(input, 100, stdin);
             
             NSString *convertedString = [[NSString stringWithCString:input encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -30,8 +32,7 @@ int main(int argc, const char * argv[]) {
             }
             else if ([convertedString isEqualToString:@"roll"] || [convertedString isEqualToString:@"r"])
             {
-                NSLog(@"Playing");
-                continue;
+                [player roll];
             }
         }
     }
