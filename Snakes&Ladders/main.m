@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
         
         while (gameOn)
         {
-            NSString *convertedString = [InputHandler rollAdDice];
+            NSString *convertedString = [InputHandler input];
             
             if ([convertedString isEqualToString:@"quit"])
             {

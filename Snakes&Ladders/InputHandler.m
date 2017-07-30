@@ -10,11 +10,11 @@
 
 @implementation InputHandler
 
-+ (NSString *)rollAdDice
++ (NSString *)input
 {
-    char input[10];
+    char input[100];
     
-    fgets(input, 10, stdin);
+    fgets(input, 100, stdin);
     NSString *trimmedInput = [[NSString stringWithCString:input encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     return trimmedInput;
