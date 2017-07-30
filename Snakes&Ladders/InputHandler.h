@@ -10,6 +10,6 @@
 
 @interface InputHandler : NSObject
 
-+ (NSString *)rollAdDice:(NSString *)roll;
++ (NSString *)rollAdDice;
 
 @end

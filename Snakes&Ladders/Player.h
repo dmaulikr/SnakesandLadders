@@ -11,7 +11,6 @@
 @interface Player : NSObject
 
 @property (nonatomic) NSInteger currentSquare;
-@property (nonatomic) NSInteger dice;
 
 - (void)roll;
 

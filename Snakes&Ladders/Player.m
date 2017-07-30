@@ -14,14 +14,21 @@
 {
     if (self = [super init])
     {
-        _dice = arc4random_uniform(6)+1;
+        _currentSquare = 0;
     }
     return self;
 }
 
 - (void)roll
 {
-    NSLog(@"Rolled a %li", (long)self.dice);
+    NSInteger diceRoll = arc4random_uniform(6)+1;
+    NSLog(@"Rolled a %li", diceRoll);
+    
+    if (self.currentSquare < 100)
+    {
+        self.currentSquare += diceRoll;
+        NSLog(@"Your current position is: %li", (long)self.currentSquare);
+    }
 }
 
 @end

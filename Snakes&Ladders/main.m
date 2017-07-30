@@ -14,20 +14,18 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         BOOL gameOn = YES;
-        char input[100];
         
-        NSLog(@"Welcome");
+        Player *player = [[Player alloc] init];
+        
+        NSLog(@"Welcome to Snakes & Ladders.\nPlease type 'roll' or 'r' to roll");
         
         while (gameOn)
         {
-            Player *player = [[Player alloc] init];
-            fgets(input, 100, stdin);
-            
-            NSString *convertedString = [[NSString stringWithCString:input encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSString *convertedString = [InputHandler rollAdDice];
             
             if ([convertedString isEqualToString:@"quit"])
             {
-                NSLog(@"Goodbye");
+                NSLog(@"Thanks for playing");
                 break;
             }
             else if ([convertedString isEqualToString:@"roll"] || [convertedString isEqualToString:@"r"])
