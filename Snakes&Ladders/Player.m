@@ -32,10 +32,7 @@
     self.output = [NSString stringWithFormat:@"Rolled a %li", self.dice];
     NSLog(@"%@", self.output);
     
-    if (self.currentSquare < 100)
-    {
-        self.currentSquare += self.dice;
-    }
+    self.currentSquare += self.dice;
     
     NSNumber *newSquare = [self.gameLogic objectForKey:[NSNumber numberWithInteger:self.currentSquare]];
     if (newSquare)
@@ -62,10 +59,20 @@
     }
     else
     {
-        self.output = [NSString stringWithFormat:@"You landed on %li", self.currentSquare];
+        if (self.currentSquare > 99)
+        {
+            self.output = @"You've reached the end. Thank you for playing!";
+            self.gameOver = YES;
+        }
+        else
+        {
+            self.output = [NSString stringWithFormat:@"You landed on %li", self.currentSquare];
+        }
     }
     
     NSLog(@"%@", self.output);
+    
+    
 }
 
 @end

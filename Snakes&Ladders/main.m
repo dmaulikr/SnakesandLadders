@@ -13,13 +13,11 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        BOOL gameOn = YES;
-        
         Player *player = [[Player alloc] init];
         
         NSLog(@"Welcome to Snakes & Ladders.\nPlease type 'roll' or 'r' to roll");
         
-        while (gameOn)
+        while (true)
         {
             NSString *convertedString = [InputHandler input];
             
@@ -31,6 +29,11 @@ int main(int argc, const char * argv[]) {
             else if ([convertedString isEqualToString:@"roll"] || [convertedString isEqualToString:@"r"])
             {
                 [player roll];
+            }
+            
+            if (player.gameOver)
+            {
+                break;
             }
         }
     }
